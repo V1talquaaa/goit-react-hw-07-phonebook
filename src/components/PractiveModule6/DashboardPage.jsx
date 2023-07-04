@@ -1,7 +1,8 @@
+import { useFetchContacts } from "./contactsApi"
 export const DashBoardPage = () => {
+    const { data: contacts } = useFetchContacts();
+
     return (
-        <div>
-            Welcome to you page
-        </div>
+        <div>{contacts}</div>
     )
 }

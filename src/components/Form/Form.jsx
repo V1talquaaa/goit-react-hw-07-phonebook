@@ -1,12 +1,16 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import './Form.module.css'
-import { useDispatch } from 'react-redux';
-import { add } from 'redux/contacts/contactSlice';
+import { useGetContactsQuery } from 'redux/newContacts/contactApi';
+// import { useDispatch } from 'react-redux';
+
+
+
 
 
 const Form = () => {
-  const dispatch = useDispatch()
+
+  // const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
 
@@ -33,7 +37,8 @@ const onSubmitContact = ({ name, number }) => {
     name: name,
     number: number,
   };
-  dispatch(add(newUer));
+  return newUer;
+  // return (dispatch) => dispatch(useAddContactMutation(newUer));
 };
 
 
