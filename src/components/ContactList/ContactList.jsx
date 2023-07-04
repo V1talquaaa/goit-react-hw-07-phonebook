@@ -28,7 +28,7 @@ const ContactList = () => {
 
   return (
     <ul>
-      {contacts && getContactBySearch().map(({ name, number, id }) => {
+      {getContactBySearch().map(({ name, number, id }) => {
         return (
           <li key={id} className={css.contactList}>
             <p>

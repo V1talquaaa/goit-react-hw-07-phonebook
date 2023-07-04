@@ -5,9 +5,6 @@ import { useGetContactsQuery } from 'redux/newContacts/contactApi';
 // import { useDispatch } from 'react-redux';
 
 
-
-
-
 const Form = () => {
 
   // const dispatch = useDispatch()
