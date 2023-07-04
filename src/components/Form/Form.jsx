@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import './Form.module.css'
-import { useGetContactsQuery } from 'redux/newContacts/contactApi';
+
 // import { useDispatch } from 'react-redux';
 
 
