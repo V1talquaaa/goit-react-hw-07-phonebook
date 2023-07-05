@@ -7,7 +7,7 @@ import { useGetContactsQuery, useDeleteContactMutation } from 'redux/newContacts
 const ContactList = () => {
 
   const {data: contacts, isLoading} = useGetContactsQuery();
-  const [deleteContact, {isLoading: isDeleting}] = useDeleteContactMutation();
+  const [deleteContact] = useDeleteContactMutation();
   const filter = useSelector(state => state.filter.filter);
 
   const getContactBySearch = () => {
@@ -32,7 +32,7 @@ const ContactList = () => {
               id={id}
               className={css.deleteBtn}
             >
-              {isDeleting? 'Deleting...' : 'Delete'}
+            Delete
             </button>
           </li>
         );

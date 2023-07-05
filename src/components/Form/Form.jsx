@@ -26,7 +26,11 @@ const Form = () => {
     if (contactName.includes(name.toLowerCase())) {
       return Notiflix.Notify.failure('This contact already exist');
     }
-    addContact({name:name, number:number})
+    try {
+      addContact({name:name, number:number})
+    } catch (error) {
+      Notiflix.Notify.failure('Please reload the page')
+    }
     setName('')
     setNumber('')
   }
