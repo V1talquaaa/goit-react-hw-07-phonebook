@@ -1,15 +1,15 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import './Form.module.css'
-
-// import { useDispatch } from 'react-redux';
-
+import { useAddContactMutation, useGetContactsQuery } from 'redux/newContacts/contactApi';
+import Notiflix from 'notiflix';
 
 const Form = () => {
 
-  // const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [number, setNumber] = useState('')
+  const [addContact] = useAddContactMutation();
+  const {data: contacts} = useGetContactsQuery();
 
 
  const onChange = ({target: {name, value}}) => {
@@ -22,22 +22,14 @@ const Form = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    onSubmitContact({name:name, number:number})
+    const contactName = contacts.map(contact => contact.name.toLowerCase());
+    if (contactName.includes(name.toLowerCase())) {
+      return Notiflix.Notify.failure('This contact already exist');
+    }
+    addContact({name:name, number:number})
     setName('')
     setNumber('')
   }
-
-
-
-const onSubmitContact = ({ name, number }) => {
-  const newUer = {
-    name: name,
-    number: number,
-  };
-  return newUer;
-  // return (dispatch) => dispatch(useAddContactMutation(newUer));
-};
-
 
     return (
       <form action="" onSubmit={onSubmit}>

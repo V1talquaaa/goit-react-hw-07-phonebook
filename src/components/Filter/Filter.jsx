@@ -9,7 +9,6 @@ const Filter = () => {
     onChange(target.value);
   };
   const onChange = query => {
-    console.log(query);
     dispatch(filterContact(query));
   };
 

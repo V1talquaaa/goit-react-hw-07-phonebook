@@ -1,4 +1,4 @@
-const { createApi, fetchBaseQuery } = require("@reduxjs/toolkit/dist/query")
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const contactsApi = createApi({
     reducerPath: 'contacts',
@@ -13,8 +13,9 @@ export const contactsApi = createApi({
             query: (data) => ({
                 url: 'contacts',
                 method: 'POST',
-                data
-            })
+                body: data
+            }),
+            invalidatesTags: ['Contacts']
         }),
         deleteContact: builder.mutation({
             query: (id) => ({
