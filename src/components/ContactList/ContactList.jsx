@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import css from './ContactList.module.css';
-import { useGetContactsQuery, useDeleteContactMutation } from 'redux/newContacts/contactApi';
+import { useGetContactsQuery, useDeleteContactMutation } from 'redux/contacts/contactApi';
 
 
 

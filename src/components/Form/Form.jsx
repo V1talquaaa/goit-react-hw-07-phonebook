@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import './Form.module.css'
-import { useAddContactMutation, useGetContactsQuery } from 'redux/newContacts/contactApi';
+import { useAddContactMutation, useGetContactsQuery } from 'redux/contacts/contactApi';
 import Notiflix from 'notiflix';
 
 const Form = () => {
